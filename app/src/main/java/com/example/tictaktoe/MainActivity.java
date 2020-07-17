@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.GridLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -116,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     public void playAgain(View view)
     {
         View viewGameOver = findViewById(R.id.constraintLayout);
-        View viewGridLayout = findViewById(R.id.gridLayoutBoard);
+        androidx.gridlayout.widget.GridLayout viewGridLayout = findViewById(R.id.gridLayoutBoard);
         View linearLayoutGameOver = viewGameOver.findViewById(R.id.linearLayoutGameOver);
 
         linearLayoutGameOver.setVisibility(View.INVISIBLE);
@@ -129,26 +133,9 @@ public class MainActivity extends AppCompatActivity {
             gamestate[i] = 2;
         }
 
-        //Getting the imageViews
-        ImageView imV = viewGridLayout.findViewById(R.id.imageView);
-        ImageView imV2 = viewGridLayout.findViewById(R.id.imageView2);
-        ImageView imV3 = viewGridLayout.findViewById(R.id.imageView3);
-        ImageView imV4 = viewGridLayout.findViewById(R.id.imageView4);
-        ImageView imV5 = viewGridLayout.findViewById(R.id.imageView5);
-        ImageView imV6 = viewGridLayout.findViewById(R.id.imageView6);
-        ImageView imV7 = viewGridLayout.findViewById(R.id.imageView7);
-        ImageView imV8 = viewGridLayout.findViewById(R.id.imageView8);
-        ImageView imV9 = viewGridLayout.findViewById(R.id.imageView9);
-
-        //setting imageView to null
-        imV.setImageResource(0);
-        imV2.setImageResource(0);
-        imV3.setImageResource(0);
-        imV4.setImageResource(0);
-        imV5.setImageResource(0);
-        imV6.setImageResource(0);
-        imV7.setImageResource(0);
-        imV8.setImageResource(0);
-        imV9.setImageResource(0);
+        for (int i = 0; i < viewGridLayout.getChildCount(); i++)
+        {
+            ((ImageView) viewGridLayout.getChildAt(i)).setImageResource(0);
+        }
     }
 }
